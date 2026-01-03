@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import Script from 'next/script';
 import '../styles/globals.css';
 import { ReactNode } from 'react';
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import { Analytics } from '@vercel/analytics/next';
 
 
 const roboto = Roboto({
@@ -55,6 +57,19 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
         </ThemeProvider>
+        <Analytics />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-0QJN2TJNCZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0QJN2TJNCZ');
+          `}
+        </Script>
       </body>
     </html>
   );
