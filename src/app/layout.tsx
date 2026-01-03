@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import '../styles/globals.css';
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 
 
@@ -39,24 +39,23 @@ export const metadata: Metadata = {
   // },
 };
 
-export default async function RootLayout({
-                                           children,
-                                         }: {
-  children: ReactElement;
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
 }) {
 
   return (
     <html
       lang={'en'}
       suppressHydrationWarning>
-    <meta name="apple-mobile-web-app-title" content="Bicardinal" />
-    <body
-      className={` ${roboto.className} antialiased`}
-    >
-    <ThemeProvider>
-      {children}
-    </ThemeProvider>
-    </body>
+      <body
+        className={` ${roboto.className} antialiased`}
+      >
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
