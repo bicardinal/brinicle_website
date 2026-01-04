@@ -14,7 +14,7 @@ export function Hero() {
       <div className="relative   col-span-12 space-y-4 overflow-hidden px-4  text-center sm:px-8  ">
         <h1
           className=" relative mx-auto w-fit font-semibold text-5xl leading-tight tracking-tighter md:text-6xl lg:text-7xl 2xl:text-8xl">
-          Brinicle
+          brinicle
         </h1>
         <p className=" mx-auto max-w-2xl text-balance text-lg text-muted-foreground md:text-2xl">
           brinicle is a C++ vector index engine (ANN library) optimized for disk-first, low-RAM similarity search.

@@ -87,10 +87,10 @@ export function CodeCase() {
     <div className={'w-full py-16 flex-col flex'}>
       <div className={"flex items-center justify-center pb-10 w-full flex-col"}>
         <h2 className={"mb-4 font-bold text-2xl text-primary tracking-tight md:text-3xl lg:text-4xl"}>
-          How to Use Brinicle
+          How to Use brinicle
         </h2>
         <p className={"mx-auto max-w-2xl text-base text-center md:text-lg text-muted-foreground leading-relaxed"}>
-          Get started with Brinicle using these code examples. Build, insert, update, and delete vectors in your index.
+          Get started with brinicle using these code examples. Build, insert, update, and delete vectors in your index.
         </p>
       </div>
       <div className="relative grid grid-cols-1  md:grid-cols-5">
@@ -98,7 +98,7 @@ export function CodeCase() {
           <div className="scrollbar-none flex gap-2 overflow-x-auto p-4 md:flex-col md:gap-4 md:p-4">
             {VALUE_ITEMS.map((option, index) => (
               <button
-                className={`w-64 flex-shrink-0 rounded-xl space-y-2 border p-4 text-left transition-colors duration-300 ease-out last:mr-0 md:mr-0 md:w-full md:p-6 ${
+                className={`w-64 flex-shrink-0 rounded-sm space-y-2 border p-4 text-left transition-colors duration-300 ease-out last:mr-0 md:mr-0 md:w-full md:p-6 ${
                   selectedIndex === option.alias
                     ? 'bg-box  shadow-sm'
                     : 'hover:dark:bg-background-subtle opacity-60'

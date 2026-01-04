@@ -11,8 +11,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bicardinal.com'
   
   return {
-    title: 'Brinicle - Production-Oriented ANN Vector Engine',
-    description: 'Brinicle Vector Engine: A production-oriented ANN index engine designed for strict resource budgets. Disk-first operation with low memory overhead. Perfect for datasets under 10M vectors, tight containers, edge machines, and low-cost instances. Get fast approximate nearest neighbor search without the overhead of a full vector database.',
+    title: 'brinicle - Production-Oriented ANN Vector Engine',
+    description: 'brinicle Vector Engine: A production-oriented ANN index engine designed for strict resource budgets. Disk-first operation with low memory overhead. Perfect for datasets under 10M vectors, tight containers, edge machines, and low-cost instances. Get fast approximate nearest neighbor search without the overhead of a full vector database.',
     keywords: [
       'brinicle',
       'vector search',
@@ -28,13 +28,13 @@ export async function generateMetadata(): Promise<Metadata> {
       type: 'website',
       locale: 'en_US',
       url: siteUrl,
-      siteName: 'Brinicle',
-      title: 'Brinicle - Production-Oriented ANN Vector Engine',
+      siteName: 'brinicle',
+      title: 'brinicle - Production-Oriented ANN Vector Engine',
       description: 'A production-oriented ANN index engine designed for strict resource budgets. Disk-first operation with low memory overhead.',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Brinicle - Production-Oriented ANN Vector Engine',
+      title: 'brinicle - Production-Oriented ANN Vector Engine',
       description: 'A production-oriented ANN index engine designed for strict resource budgets. Disk-first operation with low memory overhead.',
     },
   };

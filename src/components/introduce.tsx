@@ -11,7 +11,7 @@ export function Introduce() {
       <div className={"container"}>
       <div className={'flex items-center justify-center pb-10 w-full flex-col'}>
         <h2 className={'mb-4 font-bold text-2xl text-primary tracking-tight md:text-3xl lg:text-4xl'}>
-          What is Brinicle?
+          What is brinicle?
         </h2>
         <p className={'mx-auto max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed'}>
           Disk-optimized vector search engine for high-performance similarity search
@@ -19,14 +19,14 @@ export function Introduce() {
       </div>
       <div className="flex flex-col text-center max-w-4xl mx-auto">
         <p className="text-base md:text-lg  leading-relaxed mb-4">
-          Brinicle is a high-performance C++ vector index engine (ANN library) optimized for disk-first, low-RAM similarity search. 
+          brinicle is a high-performance C++ vector index engine (ANN library) optimized for disk-first, low-RAM similarity search. 
           It provides fast build + query operations, supports inserts/upserts/deletes, and targets predictable latency at high recall 
           with minimal memory overhead on constrained environments.
         </p>
         <p className="text-base md:text-lg  leading-relaxed mb-8">
-          Designed for production workloads, Brinicle excels in scenarios where memory is limited but disk storage is abundant. 
+          Designed for production workloads, brinicle excels in scenarios where memory is limited but disk storage is abundant. 
           Whether you're building recommendation systems, semantic search applications, or similarity matching at scale, 
-          Brinicle offers the perfect balance between performance, resource efficiency, and operational simplicity.
+          brinicle offers the perfect balance between performance, resource efficiency, and operational simplicity.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button asChild variant="default" size="lg">

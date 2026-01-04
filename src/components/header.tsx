@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { ThemeSwitcher } from '@/components/ui/shadcn-io/theme-switcher'
 import GithubIcon from '@/components/icons/github-icon';
+import { Logo } from '@/components/logo';
 
 
 export function Header() {
@@ -26,8 +27,9 @@ export function Header() {
           href="/"
           className="inline-flex items-center gap-2.5 font-semibold"
         >
+          <Logo size={25}/>
           <span className="font-semibold text-base tracking-tighter">
-            Brinicle
+            brinicle
           </span>
         </Link>
 

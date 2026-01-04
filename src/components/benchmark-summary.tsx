@@ -15,7 +15,7 @@ export function BenchmarkSummary() {
             Benchmark Results
           </h2>
           <p className="mx-auto max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed text-center">
-            See how Brinicle compares to vector databases and ANN libraries in real-world scenarios
+            See how brinicle compares to vector databases and ANN libraries in real-world scenarios
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export function BenchmarkSummary() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-3">
-                <div className="flex items-center justify-between p-4 rounded-lg bg-primary/5 border border-primary/20">
+                <div className="flex items-center justify-between p-4 rounded-sm bg-primary/5 border border-primary/20">
                   <div>
                     <div className="text-2xl font-bold text-primary">256MB</div>
                     <div className="text-sm text-muted-foreground mt-1">Minimum RAM Required</div>

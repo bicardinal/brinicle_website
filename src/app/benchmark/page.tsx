@@ -5,8 +5,8 @@ import { BenchmarkImage } from '@/components/benchmark-image'
 import { RecallCodeBlock } from '@/components/recall-code-block'
 
 export const metadata: Metadata = {
-  title: 'Benchmark - Brinicle',
-  description: 'Comprehensive benchmark results comparing Brinicle with other vector databases and ANN libraries. See performance metrics, memory efficiency, latency comparisons, and recall vs latency tradeoffs.',
+  title: 'Benchmark - brinicle',
+  description: 'Comprehensive benchmark results comparing brinicle with other vector databases and ANN libraries. See performance metrics, memory efficiency, latency comparisons, and recall vs latency tradeoffs.',
   keywords: [
     'brinicle benchmark',
     'vector database comparison',
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://bicardinal.com'}/benchmark`,
-    siteName: 'Brinicle',
-    title: 'Benchmark Results - Brinicle',
-    description: 'Comprehensive benchmark results comparing Brinicle with Qdrant, Weaviate, Milvus, Chroma, FAISS, and hnswlib.',
+    siteName: 'brinicle',
+    title: 'Benchmark Results - brinicle',
+    description: 'Comprehensive benchmark results comparing brinicle with Qdrant, Weaviate, Milvus, Chroma, FAISS, and hnswlib.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Benchmark Results - Brinicle',
-    description: 'Comprehensive benchmark results comparing Brinicle with other vector databases and ANN libraries.',
+    title: 'Benchmark Results - brinicle',
+    description: 'Comprehensive benchmark results comparing brinicle with other vector databases and ANN libraries.',
   },
 }
 
@@ -43,7 +43,7 @@ export default function BenchmarkPage() {
                 Benchmark Results
               </h1>
               <p className="mx-auto max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed text-center">
-                Comprehensive performance comparison of Brinicle with vector databases and in-process ANN libraries
+                Comprehensive performance comparison of brinicle with vector databases and in-process ANN libraries
               </p>
             </div>
 

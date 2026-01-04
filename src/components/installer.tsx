@@ -30,7 +30,7 @@ export const Installer = () => {
   return (
     <div className="flex w-fit flex-col gap-y-4">
       <div
-        className="group relative flex cursor-default items-center gap-2 rounded-md border bg-background text-foreground"
+        className="group  px-10 relative flex cursor-default items-center gap-2 rounded-sm border bg-background text-foreground"
         onClick={copyToClipboard}
         role="button"
         tabIndex={0}
@@ -39,7 +39,7 @@ export const Installer = () => {
           {CODE}
         </pre>
         <Button
-          className="!bg-transparent absolute right-0 rounded-sm text-muted-foreground group-hover:text-foreground"
+          className="!bg-transparent absolute right-0 rounded-xs text-muted-foreground group-hover:text-foreground"
           onClick={copyToClipboard}
           size="icon"
           variant="ghost"

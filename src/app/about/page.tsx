@@ -6,8 +6,8 @@ import GithubIcon from '@/components/icons/github-icon'
 import { ExternalLink } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Bicardinal - Brinicle',
-  description: 'Learn about Bicardinal and Brinicle - a production-oriented ANN index engine designed for strict resource budgets. Disk-first operation, low memory overhead, perfect for resource-constrained environments.',
+  title: 'About Bicardinal - brinicle',
+  description: 'Learn about Bicardinal and brinicle - a production-oriented ANN index engine designed for strict resource budgets. Disk-first operation, low memory overhead, perfect for resource-constrained environments.',
   keywords: [
     'bicardinal',
     'brinicle',
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://bicardinal.com'}/about`,
-    siteName: 'Brinicle',
-    title: 'About Bicardinal - Brinicle',
-    description: 'Learn about Bicardinal and Brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
+    siteName: 'brinicle',
+    title: 'About Bicardinal - brinicle',
+    description: 'Learn about Bicardinal and brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Bicardinal - Brinicle',
-    description: 'Learn about Bicardinal and Brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
+    title: 'About Bicardinal - brinicle',
+    description: 'Learn about Bicardinal and brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
   },
 }
 
@@ -93,10 +93,10 @@ export default function AboutPage() {
               </div>
             </section>
 
-            {/* Brinicle Introduction */}
+            {/* brinicle Introduction */}
             <section className="space-y-6">
               <h2 className="text-2xl font-semibold text-foreground">
-                Brinicle: Disk-First ANN Indexing for Low-RAM Vector Search
+                brinicle: Disk-First ANN Indexing for Low-RAM Vector Search
               </h2>
               <div className="space-y-4 text-base md:text-lg leading-relaxed">
                 <p>
@@ -131,7 +131,7 @@ export default function AboutPage() {
               </div>
             </section>
 
-            {/* What Brinicle Is and Is Not */}
+            {/* What brinicle Is and Is Not */}
             <section className="space-y-6">
               <h2 className="text-2xl font-semibold text-foreground">
                 What brinicle is, and what it is not
