@@ -284,9 +284,9 @@ function GithubButton({
           }}
           className="tabular-nums"
         >
-          <span>{currentStars > 0 && formatNumber(currentStars)}</span>
+          {/*<span>{currentStars > 0 && formatNumber(currentStars)}</span>*/}
         </motion.div>
-        {fixedWidth && <span className="opacity-0 h-0 overflow-hidden tabular-nums">{formatNumber(targetStars)}</span>}
+        {/*{fixedWidth && <span className="opacity-0 h-0 overflow-hidden tabular-nums">{formatNumber(targetStars)}</span>}*/}
       </div>
     </button>
   );

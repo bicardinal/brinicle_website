@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="w-full border-t bg-background">
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground text-center sm:text-left">
+          <p className="text-sm flex items-center gap-x-1 text-muted-foreground text-center sm:text-left">
             Built by{' '}
             <Link
               href="https://github.com/bicardinal"
@@ -21,7 +21,7 @@ export function Footer() {
             >
               bicardinal
             </Link>
-            {' '}with <span className="text-red-500">❤️</span>
+            {' '}with <span className="text-2xl">🍻</span>
           </p>
           <div className="flex items-center gap-4">
             <Link

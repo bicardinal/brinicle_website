@@ -54,8 +54,8 @@ export const Installer = () => {
         label="Star on GitHub"
         showGithubIcon={true}
         showStarIcon={true}
-        targetStars={0}
-        autoAnimate={false}
+        targetStars={1}
+        autoAnimate={true}
       />
     </div>
   );

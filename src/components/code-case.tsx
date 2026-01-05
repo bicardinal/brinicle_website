@@ -98,7 +98,7 @@ export function CodeCase() {
           <div className="scrollbar-none flex gap-2 overflow-x-auto p-4 md:flex-col md:gap-4 md:p-4">
             {VALUE_ITEMS.map((option, index) => (
               <button
-                className={`w-64 flex-shrink-0 rounded-sm space-y-2 border p-4 text-left transition-colors duration-300 ease-out last:mr-0 md:mr-0 md:w-full md:p-6 ${
+                className={`w-64 cursor-pointer flex-shrink-0 rounded-sm space-y-2 border p-4 text-left transition-colors duration-300 ease-out last:mr-0 md:mr-0 md:w-full md:p-6 ${
                   selectedIndex === option.alias
                     ? 'bg-box  shadow-sm'
                     : 'hover:dark:bg-background-subtle opacity-60'
@@ -107,7 +107,7 @@ export function CodeCase() {
                 onClick={() => setSelectedIndex(option.alias)}
                 type="button"
               >
-                <label className="text-muted-foreground text-sm tracking-tight md:text-md lg:text-md">
+                <label className="text-muted-foreground cursor-pointer text-sm tracking-tight md:text-md lg:text-md">
                   {option.label}
                 </label>
                 <h2 className={
