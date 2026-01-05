@@ -7,7 +7,7 @@ import { ExternalLink } from 'lucide-react'
 import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
-  title: 'About brinicle ',
+  title: 'The philosophy of brinicle ',
   description: 'brinicle is a C++ vector index engine (ANN library) optimized for disk-first, low-RAM similarity search.',
   keywords: [
     'bicardinal',
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://brinicle.bicardinal.com'}/about`,
     siteName: 'brinicle',
-    title: 'About Bicardinal - brinicle',
-    description: 'Learn about Bicardinal and brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
+    title: 'The philosophy of brinicle ',
+    description: 'Learn about  brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Bicardinal - brinicle',
-    description: 'Learn about Bicardinal and brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
+    title: 'The philosophy of brinicle',
+    description: 'Learn about brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
   },
 }
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
       author: {
         '@type': 'Organization',
         name: 'Bicardinal',
-        url: 'https://bicardinal.com',
+        url: 'https://brinicle.bicardinal.com',
       },
       codeRepository: 'https://github.com/bicardinal/brinicle',
     },
@@ -86,7 +86,7 @@ export default function AboutPage() {
             {/* Hero Section */}
             <div className="flex items-center justify-center pb-10 w-full flex-col">
               <h1 className="mb-4 font-bold text-3xl text-primary tracking-tight md:text-4xl lg:text-5xl">
-                About Bicardinal
+                The philosophy of brinicle
               </h1>
               <p className="mx-auto max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed text-center">
                 Building production-oriented vector search solutions
