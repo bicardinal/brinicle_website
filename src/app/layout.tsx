@@ -15,15 +15,16 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://brinicle.bicardinal.com'),
   title: {
-    default: 'Bicardenal - The Vector Database for Production Scale',
-    template: '%s | Bicardenal',
+    default: 'brinicle - Production-Oriented ANN Vector Engine',
+    template: '%s | brinicle',
   },
-  description: 'Build knowledgeable AI applications with Bicardenal. Fast, scalable vector database designed for production. Power semantic search, RAG, recommendations, and AI agents.',
+  description: 'brinicle is a C++ vector index engine (ANN library) optimized for disk-first, low-RAM similarity search. A production-oriented ANN index engine designed for strict resource budgets with disk-first operation and low memory overhead.',
   
-  authors: [{name: 'Bicardenal'}],
-  creator: 'Bicardenal',
-  publisher: 'Bicardenal',
+  authors: [{name: 'Bicardinal'}],
+  creator: 'Bicardinal',
+  publisher: 'Bicardinal',
 
   robots: {
     index: true,

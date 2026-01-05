@@ -4,10 +4,11 @@ import { Header } from '@/components/header'
 import { Button } from '@/components/ui/button'
 import GithubIcon from '@/components/icons/github-icon'
 import { ExternalLink } from 'lucide-react'
+import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
-  title: 'About Bicardinal - brinicle',
-  description: 'Learn about Bicardinal and brinicle - a production-oriented ANN index engine designed for strict resource budgets. Disk-first operation, low memory overhead, perfect for resource-constrained environments.',
+  title: 'About brinicle ',
+  description: 'brinicle is a C++ vector index engine (ANN library) optimized for disk-first, low-RAM similarity search.',
   keywords: [
     'bicardinal',
     'brinicle',
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://bicardinal.com'}/about`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://brinicle.bicardinal.com'}/about`,
     siteName: 'brinicle',
     title: 'About Bicardinal - brinicle',
     description: 'Learn about Bicardinal and brinicle - a production-oriented ANN index engine designed for strict resource budgets.',
@@ -33,10 +34,53 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brinicle.bicardinal.com'
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About brinicle',
+    description: 'Learn about brinicle - a production-oriented ANN index engine designed for strict resource budgets. Disk-first operation with low memory overhead for datasets under 10M vectors.',
+    url: `${siteUrl}/about`,
+    mainEntity: {
+      '@type': 'SoftwareApplication',
+      name: 'brinicle',
+      description: 'brinicle is a C++ vector index engine (ANN library) optimized for disk-first, low-RAM similarity search. It provides fast build + query operations, supports inserts/upserts/deletes, and targets predictable latency at high recall with minimal memory overhead on constrained environments.',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Cross-platform',
+      author: {
+        '@type': 'Organization',
+        name: 'Bicardinal',
+        url: 'https://bicardinal.com',
+      },
+      codeRepository: 'https://github.com/bicardinal/brinicle',
+    },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: siteUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'About',
+          item: `${siteUrl}/about`,
+        },
+      ],
+    },
+    inLanguage: 'en',
+  }
+
   return (
-    <div className="container relative mx-auto size-full max-w-6xl divide-y px-0 [&>*:nth-child(n+3)]:sm:border-x">
-      <main>
-        <Header />
+    <>
+      <JsonLd data={jsonLd} />
+      <div className="container relative mx-auto size-full max-w-6xl divide-y px-0 [&>*:nth-child(n+3)]:sm:border-x">
+        <main>
+          <Header />
         <div className="w-full py-16 flex-col flex">
           <div className="container space-y-12 max-w-4xl mx-auto">
             {/* Hero Section */}
@@ -218,5 +262,6 @@ export default function AboutPage() {
         </div>
       </main>
     </div>
+      </>
   )
 }

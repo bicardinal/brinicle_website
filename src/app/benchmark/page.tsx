@@ -3,6 +3,7 @@ import { Header } from '@/components/header'
 import { BenchmarkTable } from '@/components/benchmark-table'
 import { BenchmarkImage } from '@/components/benchmark-image'
 import { RecallCodeBlock } from '@/components/recall-code-block'
+import { JsonLd } from '@/components/json-ld'
 
 export const metadata: Metadata = {
   title: 'Benchmark - brinicle',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://bicardinal.com'}/benchmark`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://brinicle.bicardinal.com'}/benchmark`,
     siteName: 'brinicle',
     title: 'Benchmark Results - brinicle',
     description: 'Comprehensive benchmark results comparing brinicle with Qdrant, Weaviate, Milvus, Chroma, FAISS, and hnswlib.',
@@ -31,10 +32,51 @@ export const metadata: Metadata = {
 }
 
 export default function BenchmarkPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://brinicle.bicardinal.com'
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Benchmark Results - brinicle',
+    description: 'Comprehensive benchmark results comparing brinicle with vector databases (Qdrant, Weaviate, Milvus, Chroma) and in-process ANN libraries (FAISS, hnswlib). Performance metrics, memory efficiency, latency comparisons, and recall vs latency tradeoffs.',
+    url: `${siteUrl}/benchmark`,
+    mainEntity: {
+      '@type': 'Dataset',
+      name: 'brinicle Benchmark Results',
+      description: 'Performance benchmarks comparing brinicle vector index engine with other vector databases and ANN libraries across multiple datasets including SIFT, Fashion-MNIST, and MNIST.',
+      keywords: 'vector search benchmark, ANN performance, memory efficiency, latency comparison, vector database benchmark',
+      creator: {
+        '@type': 'Organization',
+        name: 'Bicardinal',
+        url: 'https://bicardinal.com',
+      },
+    },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: siteUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Benchmark',
+          item: `${siteUrl}/benchmark`,
+        },
+      ],
+    },
+    inLanguage: 'en',
+  }
+
   return (
-    <div className="container relative mx-auto size-full max-w-6xl divide-y px-0 [&>*:nth-child(n+3)]:sm:border-x">
-      <main>
-        <Header/>
+    <>
+      <JsonLd data={jsonLd} />
+      <div className="container relative mx-auto size-full max-w-6xl divide-y px-0 [&>*:nth-child(n+3)]:sm:border-x">
+        <main>
+          <Header/>
         <div className="w-full py-16 flex-col flex">
           <div className="container space-y-16">
             {/* Hero Section */}
@@ -564,5 +606,7 @@ export default function BenchmarkPage() {
         </div>
       </main>
     </div>
+    </>
+
   )
 }
