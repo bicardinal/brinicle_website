@@ -673,9 +673,17 @@ export default function SearchBenchmarkPage() {
                   </p>
                   <div className="bg-muted rounded-lg p-4 font-mono text-sm">
                     <p>w_lexical = (1 - 0.90) / 0.90 = 0.1111</p>
-                    <p>If the base title weight is 0.45, the effective title weight becomes:</p>
-                    <p>0.45 &middot; 0.1111 = 0.0500</p>
-                    <p>while the vector weight remains: w_vector = 1.0</p>
+                  </div>
+                  <p className="text-base md:text-lg leading-relaxed">
+                    If the base title weight is 0.45, the effective title weight becomes:
+                  </p>
+                  <div className="bg-muted rounded-lg p-4 font-mono text-sm">
+                  <p>0.45 &middot; 0.1111 = 0.0500</p>
+                  </div>
+                  <p className="text-base md:text-lg leading-relaxed">while the vector weight remains: </p>
+
+                  <div className="bg-muted rounded-lg p-4 font-mono text-sm">
+                    <p>w_vector = 1.0</p>
                   </div>
                   <p className="text-base md:text-lg leading-relaxed">
                     This parameterization treats dense-vector distance as the primary semantic geometry and uses lexical evidence as a correction term. Lower alpha values increase the strength of lexical correction. Higher alpha values make retrieval more vector-oriented.
