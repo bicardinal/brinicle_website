@@ -138,9 +138,9 @@ export function Header() {
                 }`}
               >
                 {item.label}
-                {item.external && (
-                  <ExternalLink className="h-3.5 w-3.5 ml-1" />
-                )}
+                {/*{item.external && (*/}
+                {/*  <ExternalLink className="h-3.5 w-3.5 ml-1" />*/}
+                {/*)}*/}
               </Link>
             )
           })}
