@@ -7,7 +7,8 @@ import { useTheme } from 'next-themes'
 import { ThemeSwitcher } from '@/components/ui/shadcn-io/theme-switcher'
 import GithubIcon from '@/components/icons/github-icon'
 import { Logo } from '@/components/logo'
-import { Menu } from 'lucide-react'
+import { Menu, ChevronDown, ExternalLink } from 'lucide-react'
+
 import {
   Sheet,
   SheetContent,
@@ -17,20 +18,53 @@ import {
   SheetClose,
 } from '@/components/ui/sheet'
 
-const navLinks = [
-  { href: '/benchmark', label: 'Benchmark' },
-  { href: '/search_benchmark', label: 'Search Benchmark' },
+const navItems = [
+  { href: '/', label: 'Home' },
+  {
+    label: 'Benchmarks',
+    children: [
+      { href: '/search_benchmark', label: 'Search Benchmark' },
+      { href: '/benchmark', label: 'Vector Benchmark' },
+    ],
+  },
+  {
+    href: 'https://docs.brinicle.bicardinal.com/',
+    label: 'Documentation',
+    external: true,
+  },
   { href: '/about', label: 'About' },
 ]
 
 export function Header() {
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
+
   const [mobileOpen, setMobileOpen] = React.useState(false)
+  const [mobileBenchOpen, setMobileBenchOpen] = React.useState(false)
+
+  // desktop hover state
+  const [benchOpen, setBenchOpen] = React.useState(false)
+  const closeTimeout = React.useRef<NodeJS.Timeout | null>(null)
+
+  const handleEnter = () => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current)
+    setBenchOpen(true)
+  }
+
+  const handleLeave = () => {
+    closeTimeout.current = setTimeout(() => {
+      setBenchOpen(false)
+    }, 120)
+  }
+
+  const isBenchActive =
+    pathname === '/benchmark' || pathname === '/search_benchmark'
 
   const handleThemeChange = (newTheme: 'light' | 'dark' | 'system') => {
     setTheme(newTheme)
   }
+
+  const benchItem = navItems.find((i) => i.label === 'Benchmarks')
 
   return (
     <div className="relative">
@@ -49,85 +83,148 @@ export function Header() {
           </span>
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex flex-row items-center gap-6 ml-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm transition-colors ${
-                pathname === link.href
-                  ? 'text-foreground font-medium'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            if ('children' in item && item.children) {
+              return (
+                <div
+                  key={item.label}
+                  className="relative"
+                  onMouseEnter={handleEnter}
+                  onMouseLeave={handleLeave}
+                >
+                  <button
+                    className={`text-sm inline-flex items-center gap-1 transition-colors ${
+                      isBenchActive
+                        ? 'text-foreground font-medium'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronDown className="h-3.5 w-3.5" />
+                  </button>
+
+                  {benchOpen && (
+                    <div className="absolute left-0 mt-2 w-48 rounded-md border bg-background shadow-md z-50">
+                      {benchItem?.children?.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className={`block px-3 py-2 text-sm hover:bg-muted ${
+                            pathname === child.href ? 'font-medium' : ''
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
+            }
+
+            return (
+              <Link
+                key={item.label}
+                href={item.href!}
+                {...(item.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+                className={`text-sm transition-colors inline-flex items-center gap-1 ${
+                  item.href === pathname
+                    ? 'text-foreground font-medium'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {item.label}
+                {item.external && (
+                  <ExternalLink className="h-3.5 w-3.5 ml-1" />
+                )}
+              </Link>
+            )
+          })}
         </div>
 
-        {/* Right Side Actions */}
-        <div className="flex flex-row items-center gap-2 ml-auto md:ml-0">
-          {/* Theme Toggle */}
-          <ThemeSwitcher
-            value={theme as 'light' | 'dark' | 'system'}
-            onChange={handleThemeChange}
-          />
+        {/* Right Actions */}
+        <div className="flex items-center gap-2 ml-auto md:ml-0">
+          <ThemeSwitcher value={theme as any} onChange={handleThemeChange} />
 
-          {/* GitHub Link - Desktop */}
           <Link
             href="https://github.com/bicardinal/brinicle"
             target="_blank"
-            aria-label="GitHub"
-            className="hidden md:inline-flex items-center justify-center rounded-md p-2"
+            className="hidden md:inline-flex p-2"
           >
             <GithubIcon />
           </Link>
 
-          {/* Mobile Menu Trigger */}
+          {/* Mobile */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger asChild>
-              <button
-                className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Open menu"
-              >
+              <button className="md:hidden p-2">
                 <Menu className="h-5 w-5" />
               </button>
             </SheetTrigger>
+
             <SheetContent side="right" className="w-72">
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-2">
                   <Logo size={20} />
-                  <span className="tracking-tighter">brinicle</span>
+                  <span>brinicle</span>
                 </SheetTitle>
               </SheetHeader>
+
               <div className="flex flex-col gap-1 px-4 mt-2">
-                {navLinks.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={`flex items-center rounded-md px-3 py-2.5 text-sm transition-colors ${
-                        pathname === link.href
-                          ? 'bg-muted text-foreground font-medium'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-              </div>
-              <div className="mt-auto border-t px-4 pt-4 pb-4 flex flex-col gap-3">
-                <SheetClose asChild>
-                  <Link
-                    href="https://github.com/bicardinal/brinicle"
-                    target="_blank"
-                    className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <GithubIcon />
-                    <span>GitHub</span>
-                  </Link>
-                </SheetClose>
+                {navItems.map((item) => {
+                  if ('children' in item && item.children) {
+                    return (
+                      <div key={item.label}>
+                        <button
+                          onClick={() =>
+                            setMobileBenchOpen((prev) => !prev)
+                          }
+                          className="flex justify-between w-full px-3 py-2 text-sm"
+                        >
+                          {item.label}
+                          <ChevronDown
+                            className={`h-3.5 w-3.5 transition-transform ${
+                              mobileBenchOpen ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+
+                        {mobileBenchOpen &&
+                          item.children.map((child) => (
+                            <SheetClose asChild key={child.href}>
+                              <Link
+                                href={child.href}
+                                className="ml-4 block px-3 py-2 text-sm"
+                              >
+                                {child.label}
+                              </Link>
+                            </SheetClose>
+                          ))}
+                      </div>
+                    )
+                  }
+
+                  return (
+                    <SheetClose asChild key={item.label}>
+                      <Link
+                        href={item.href!}
+                        {...(item.external
+                          ? {
+                            target: '_blank',
+                            rel: 'noopener noreferrer',
+                          }
+                          : {})}
+                        className="block px-3 py-2 text-sm"
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
+                  )
+                })}
               </div>
             </SheetContent>
           </Sheet>

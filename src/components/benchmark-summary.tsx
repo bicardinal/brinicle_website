@@ -35,23 +35,23 @@ export function BenchmarkSummary() {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Average Latency</span>
-                  <span className="text-lg font-bold text-primary">0.103ms</span>
+                  <span className="text-lg font-bold text-primary">0.095ms</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">P50 Latency</span>
-                  <span className="text-lg font-bold">0.101ms</span>
+                  <span className="text-lg font-bold">0.095ms</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">P95 Latency</span>
-                  <span className="text-lg font-bold">0.138ms</span>
+                  <span className="text-lg font-bold">0.120ms</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">P99 Latency</span>
-                  <span className="text-lg font-bold">0.171ms</span>
+                  <span className="text-lg font-bold">0.133ms</span>
                 </div>
                 <div className="flex justify-between items-center pt-2 border-t">
                   <span className="text-sm text-muted-foreground">Throughput</span>
-                  <span className="text-lg font-bold text-green-600">9,731 QPS</span>
+                  <span className="text-lg font-bold text-green-600">10,563 QPS</span>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground pt-2 border-t">
